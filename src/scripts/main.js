@@ -13,7 +13,8 @@ ocultar.addEventListener("click", () => {
     menu.classList.add("-top-40"); 
 });
 
-mostrar.addEventListener("click", () => {
+mostrar.addEventListener("click", (e) => {
+        e.preventDefault();
     menu.classList.remove("-top-40");
     menu.classList.add("top-0");
 });

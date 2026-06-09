@@ -62,12 +62,12 @@
             <div class="p-4 gap-3">
 
                 <form class="bg-[#ffff] flex mx-auto max-w-md text-gray-500 p-2 shadow-lg rounded-xl" >
-                  <div class="border-r border-gray-200 px-4 py-3">Add location</div>
-                  <div class="border-l border-gray-200 px-4 py-3">Add guest</div> 
+                  <div class="border-r border-gray-200 px-4 py-3"><input name="location" type="text" placeholder="Add location" class="w-full px-1 py-2 rounded-lg placeholder-gray-400 text-sm focus:outline-none" /></div>
+                  <div class="border-l border-gray-200 px-4 py-3"><input name="guests" type="text" placeholder="Add guests" class="w-full px-2 py-1 rounded-lg placeholder-gray-400 text-sm focus:outline-none" /></div> 
                   <div class="px-2 py-1 flex">
-                   <button  id="mostrar" type="submit" class="ml-5 text-[#ED635B] w-9 flex items-center rounded-full bg-transparent"aria-label="Buscar">
-                     <img  src="/src/images/search.svg" alt="Buscar" class="ml-3 w-6 h-6" />
-                   </button>
+                     <button id="mostrar" type="submit" class="px-2 py-1 text-[#ED635B] flex items-center justify-center">
+                      <h2 class="ml-4 text-2xl fa-solid fa-magnifying-glass"></h2>
+                    </button>
                   </div>
                 
                 </form>
@@ -76,11 +76,8 @@
                      <h1 class="text-xl font-bold mt-4">Stays in Finland</h1>
                      <span class="" id="txt-adults">12+ stays</span>
                 
-
-              
-                <div id="stays-container" class="grid grid-cols-1 gap-4 mt-6"></div>
             </div>
-         <div class="bg-white rounded-lg shadow border border-gray-200 max-w-xl mx-auto my-4 p-4">
+         <div class="bg-white rounded-lg max-w-xl mx-auto my-4 ">
     
     
     <div class="text-sm text-gray-800 mb-3">
@@ -90,16 +87,18 @@
     <div class="pt-2 text-sm to-gray-500">
 
         <div class="flex items-center justify-between">
-         <span> entire apartment . 2 beds</span>
+         <span class="font-semibold text-gray-400"> entire apartment . 2 beds</span>
+         <i class="fa-solid fa-star star text-amber-500"><span class="font-light text-gray-400 score">4.4</span></i>
         </div>
         <span class="flex justify-between items-baseline gap-1 font-semibold text-gray-700">
             <h3 class="mt-1 text-gray-900 font-bold text-base tracking-tight">stylist apartment in center of the city</h3>
-            <i class="fa-solid fa-star star text-amber-500"><span class=" text-gray-400 score">4.4</span></i>
+            
          
           </span>
         
         </div>
 
 </div>
+
    </body>
 </html>

@@ -13,22 +13,27 @@
 
     <div id="menu" class="fixed -top-full left-0 w-full bg-white  text-black p-6 z-50 transition-all duration-300 shadow-lg">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="font-bold">Edit your search</h2>
+            <div><img src="/src/images/logo-f7862584.svg" alt="windbnb Logo"> </div>
             <button id="ocultar" class="p-2 rounded-full font-semibold text-2xl px-4">X</button>
         </div>
 
-        <div class=" shadow-md rounded-2xl p-4 mb-6">
-        <div class="pb-2 border-b border-gray-200">
+        <div class=" shadow-md md:flex rounded-2xl p-4 mb-6">
+        <div class="pb-2 border-b md:border-b-0 md:border-r border-gray-200 md:w-1/3">
           <span class="font-medium">LOCATION</span>
           <span class="text-xs text-gray-500 block">state, country</span>
         </div>
-        <div class="pt-2">
+        <div class="pt-2 md:w-1/3 md:pl-4">
           <span class="font-medium">GUESTS</span>
           <span id="totalguests" class="text-xs text-gray-500 block">0, guest</span>
         </div>
+        <div class="hidden md:flex md:w-1/3 justify-center items-center">
+          <button id="btn-search" class="bg-[#ED635B] text-white px-8 py-3 text-2xl rounded-full font-normal "><h2 class="mr-3 text-xl fa-solid fa-magnifying-glass"></h2>  search</button>
+        </div>
       </div>
       
-      <div class="flex flex-col gap-4 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 mb-6">
+        <div class="hidden md:block"></div>
+        <div class="flex flex-col gap-4">
          <div class="justify-between items-center">
           <div>
             <p class="font-bold text-sm">Adults,</p>
@@ -53,15 +58,18 @@
           </div>
         </div>
     </div>
-
-        <div class="flex justify-center">
-          <button id="btn-search" class="bg-[#ED635B] text-white px-8 py-3 text-2xl rounded-full font-normal "><h2 class="mr-3 text-xl fa-solid fa-magnifying-glass"></h2>  search</button>
+  </div>
+        <div class="flex md:hidden mt6 justify-center">
+            <button id="btn-search-mobile" class="bg-[#ED635B] text-white px-8 py-3 text-2xl rounded-full font-normal">
+            <h2 class="mr-3 text-xl fa-solid fa-magnifying-glass"></h2>  search</button>
         </div>
     </div>
 
-            <div class="p-4 gap-3">
+    <div class="p-4 gap-3">
+              <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
+                <img src="/src/images/logo-f7862584.svg" alt="windbnb Logo">
 
-                <form class="bg-[#ffff] flex mx-auto max-w-md text-gray-500 p-2 shadow-lg rounded-xl" >
+                <form class="bg-[#ffff] flex max-w-md text-gray-500 p-2 shadow-lg rounded-xl" >
                   <div class="border-r border-gray-200 px-4 py-3"><input name="location" type="text" placeholder="Add location" class="w-full px-1 py-2 rounded-lg placeholder-gray-400 text-sm focus:outline-none" /></div>
                   <div class="border-l border-gray-200 px-4 py-3"><input name="guests" type="text" placeholder="Add guests" class="w-full px-2 py-1 rounded-lg placeholder-gray-400 text-sm focus:outline-none" /></div> 
                   <div class="px-2 py-1 flex">
@@ -71,15 +79,15 @@
                   </div>
                 
                 </form>
-
+              </header>
                     <div class="flex justify-between items-baseline mt-4">
                       <h1 class="text-xl font-bold mt-4">Stays in Finland</h1>
                       <span class="" id="txt-adults">12+ stays</span>
                     </div>
-                    <div id="stays-container" class="grid grid-cols-1 gap-4 mt-6"></div>
+                    <div id="stays-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6"></div>
          <div class="bg-white rounded-lg max-w-xl mx-auto my-4 ">
-          
-         </div>
 
+         </div>
+    </div>
    </body>
 </html>

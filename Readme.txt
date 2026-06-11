@@ -1,48 +1,51 @@
-Windbnb - Proyecto Final (Funval)
+Este proyecto consiste en el desarrollo de una aplicación web de búsqueda de estancias, inspirada en el desafío Windbnb de DevChallenges.
+ El objetivo es proporcionar una interfaz donde los usuarios puedan filtrar alojamientos de forma dinámica según su ubicación y la cantidad
+ de huéspedes.
 
-Este es mi proyecto final para la primera etapa de Frontend en Funval. Es una aplicación web responsiva basada en el reto "Windbnb" de DevChallenges, que simula la interfaz y funcionalidad de búsqueda de una plataforma como AirBnB.
 
-*Link del proyecto en vivo=
+Características principales
 
-¿Qué hace este proyecto?
+Interfaz responsive diseñada con Tailwind CSS, adaptándose a cualquier dispositivo.
 
-El objetivo principal de esta aplicación es consumir una base de datos local (`stays.js`) y permitirle al usuario filtrar las estancias disponibles por ciudad y por cantidad de huéspedes. 
+Filtrado en tiempo real: los resultados se actualizan automáticamente al ajustar los criterios de búsqueda (ubicación y cantidad de huéspedes).
 
-Me enfoqué en que la lógica funcionara bien y en que el código estuviera ordenado. Estas son las características principales que implementé:
+Lógica modular: el código está estructurado utilizando módulos de JavaScript (ES6+) para garantizar una arquitectura limpia y mantenible.
 
-*   **Diseño 100% Responsive:** Maquetado con TailwindCSS. La interfaz cambia lógicamente dependiendo de la pantalla. En móviles, el buscador y las tarjetas se apilan; en escritorio, el diseño pasa a una fila horizontal y un grid de 3 columnas para aprovechar el espacio.
-*   **Filtros en tiempo real:** No hay que recargar la página. Al escribir la ciudad o al sumar/restar huéspedes en el menú, las tarjetas en pantalla se actualizan al instante usando la función `.filter()` de JavaScript.
-*   **Arquitectura Modular:** Para no tener un archivo gigante y difícil de leer, dividí la lógica de JavaScript en módulos:
-    *   `stays.js`: Se encarga exclusivamente de hacer el fetch a los datos.
-    *   `filters.js`: Maneja la matemática y la lógica pura del colador de datos.
-    *   `ui.js`: Se encarga de recibir los datos limpios y dibujar el HTML en el DOM.
-    *   `main.js`: Es el director de orquesta que importa los módulos y maneja los eventos del usuario.
+Consumo de datos local: implementación de un archivo stays.js para la gestión y carga de la información de las estancias.
 
-Mejoras Extra UX/UI
-
-Aparte de los requisitos base del proyecto, decidí agregar un par de funcionalidades extra para que la página se sienta más como un producto real y mejore la experiencia del usuario:
-
-1.Efecto de expansión en las tarjetas (Hover): 
-   Para que el grid de PC se viera simétrico, forcé a que todas las imágenes tuvieran la misma altura y proporción (`object-cover`). Sin embargo, para no perder la foto original, agregué un efecto para que, al pasar el ratón, la tarjeta entera crezca suavemente hacia abajo revelando el tamaño real de la imagen, sin romper la cuadrícula.
-
-2.Alerta visual de capacidad excedida: 
-   Si un usuario empieza a sumar huéspedes y sobrepasa la capacidad máxima de todas las casas disponibles (dejando la pantalla en blanco), los contenedores de los inputs se pintan de rojo automáticamente para advertirle visualmente que se pasó del límite.
-
-3.Sincronización de inputs y bloqueos de seguridad: 
-   El buscador principal de la página y el del menú desplegable están conectados bidireccionalmente. Además, bloqueé el input de huéspedes de la pantalla principal (`readonly`) para obligar al usuario a usar los controles de `+` y `-`, evitando que ingresen números negativos o letras por error.
 
 Tecnologías utilizadas
 
-*   HTML5 (Estructura semántica)
-*   TailwindCSS (Estilos y responsividad)
-*   JavaScript Vanilla (Lógica y manipulación del DOM)
-*   Vite (Entorno de desarrollo)
+HTML5: Estructura semántica de la interfaz.
+Tailwind CSS: Estilos y diseño responsivo.
+JavaScript (Vanilla): Lógica de negocio, manipulación del DOM y filtrado.
+Vite: Entorno de desarrollo para empaquetado y optimización.
+Font Awesome: Iconografía.
 
-Cómo correr el proyecto en local
 
-para clonar este repositorio y correrlo en tu máquina:
+Arquitectura del proyecto
 
-1.Clona el repositorio.
-2.Abrír la terminal en la carpeta del proyecto.
-3.Instala las dependencias con `pnpm install`.
-4.Levanta el servidor con `pnpm run dev`.
+Para facilitar el desarrollo y escalar la aplicación, he organizado la lógica en módulos independientes:
+
+main.js: Punto de entrada que orquesta los eventos del DOM y la interacción del usuario.
+ui.js: Responsable de la renderización dinámica de las tarjetas de estancias y modales.
+filters.js: Contiene las funciones puras encargadas de procesar y filtrar los datos según los criterios seleccionados.
+stays.js: Módulo dedicado a la gestión y carga asíncrona de los datos (stays.json).
+
+
+Funcionalidades adicionales
+
+Como mejora propia, he añadido una funcionalidad de alerta visual: si el usuario realiza una búsqueda donde no existen estancias que
+cumplan con la capacidad de huéspedes requerida, el buscador resalta visualmente los campos de entrada, guiando al usuario para ajustar
+sus filtros y obtener resultados válidos. También he implementado un sistema de modales para visualizar los detalles de cada estancia 
+al hacer clic sobre ella.
+
+Instalación y ejecución
+Para trabajar con este proyecto localmente, sigue estos pasos:
+Clona el repositorio:
+git clone []
+Instala las dependencias necesarias:
+npm install
+Inicia el servidor de desarrollo:
+npm run dev
+Abre la dirección proporcionada (habitualmente http://localhost:5173) en tu navegador.

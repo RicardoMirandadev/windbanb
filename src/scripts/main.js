@@ -11,19 +11,20 @@ const menu  =   document.querySelector("#menu");
 const ocultar   =   document.querySelector("#ocultar");
 const mostrar   =   document.querySelector("#mostrar");
 const btnSearchPC = document.querySelector("#btn-search");
+const formPrincipal = document.querySelector("form");
+const inputLocationMenu = document.querySelector("#menu-location-input");
 const btnSearchMobile = document.querySelector("#btn-search-mobile");
 const inputLocation = document.querySelector("input[name='location']");
-const txtAdultos = document.querySelector("#menu #txt-adultos");
-const txtNiños  = document.querySelector("#menu #txt-niños");
+const totalGuestsMenu = document.querySelector("#totalguests");
 const btnadultosAdd = document.querySelector("#btn-adultos-add");
 const btnadultosSub = document.querySelector("#btn-adultos-sub");
 const btnniñosAdd = document.querySelector("#btn-niños-add");
 const btnniñosSub = document.querySelector("#btn-niños-sub");
-const totalGuestsMenu = document.querySelector("#totalguests");
-const formPrincipal = document.querySelector("form"); 
+const txtAdultos = document.querySelector("#menu #txt-adultos");
+const txtNiños  = document.querySelector("#menu #txt-niños");
 const textoUbicacionMenu = document.querySelector("#menu span.text-xs.text-gray-500.block");
 const inputGuestsBg = document.querySelector("input[name='guests']");
-const inputLocationMenu = document.querySelector("#menu-location-input");
+
 const warningBg = document.querySelector("#warning-bg");
 const warningMenu = document.querySelector("#warning-menu");
 
@@ -190,10 +191,10 @@ async function desplegarPagina() {
 
 desplegarPagina();
 
-// FUNCIONALIDAD EXTRA: Alerta visual de capacidad excedida
+// FUNCIONALIDAD EXTRA: Alerta visual 
 function verificarAlertaCapacidad() {
     const adultos = parseInt(txtAdultos.innerText) || 0;
-    const niños = parseInt(txtNiños.innerText) || 0; // Usamos tu variable con 'ñ'
+    const niños = parseInt(txtNiños.innerText) || 0; 
     const totalHuespedes = adultos + niños;
 
     const cajaGuestsFondo = inputGuestsBg.parentElement; 

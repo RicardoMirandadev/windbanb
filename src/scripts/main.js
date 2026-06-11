@@ -1,4 +1,6 @@
 import { loadStays } from "/src/scripts/stays.js";
+import { renderTarjetas } from "./ui.js";
+import { filtrarEstancias } from "./filters.js";
 
 
 let originalsCaves =[];
@@ -106,6 +108,7 @@ btnniñosSub.addEventListener("click", () => {
         txtNiños.innerText = count - 1;
         actualizarTotalHuespedes();
         limpiarAdvertencia();
+        hacerFiltrado();
 
     }
 });
@@ -126,32 +129,6 @@ mostrar.addEventListener("click", (e) => {
 });
 
 
-function renderTarjetas(lista) {
-    contenedor.innerHTML= "";
-    lista.forEach(estancia => {
-        const tarjetahtml = `
-        <div class="bg-white rounded-lg max-w-xl mx-auto my-4 group cursor-pointer">
-            <div class="text-sm text-gray-800 mb-3 overflow-hidden rounded-2xl h-64 group-hover:h-112.5 transition-all duration-500 ease-in-out">
-                <img class="w-full h-full aspect-4/3 object-cover transition-transform duration-500ease-in-out group- group-hover:scale-110" src="${estancia.photo}" alt="${estancia.title}">
-            </div>
-            <div class="pt-2 text-sm text-gray-500">
-                <div class="flex items-center justify-between">
-                    <span class="font-semibold text-gray-400"> 
-                        ${estancia.superHost ? '<span class="border border-gray-800 text-gray-800 px-2 py-1 rounded-full text-xs font-bold mr-2">SUPERHOST</span>' : ''} 
-                        ${estancia.type} . ${estancia.beds !== null ? estancia.beds + ' beds' : ''}
-                    </span>
-                    <i class="fa-solid fa-star star text-amber-500"><span class="font-light text-gray-400 score ml-1">${estancia.rating}</span></i>
-                </div>                
-                <span class="flex justify-between items-baseline gap-1 font-semibold text-gray-700 mt-2">
-                    <h3 class="text-gray-900 font-bold text-base tracking-tight">${estancia.title}</h3>
-                </span>
-            </div>
-        </div>
-        `; 
-        contenedor.innerHTML += tarjetahtml;
-        
-    });
-}
 
 
 function hacerFiltrado() {
@@ -159,15 +136,9 @@ function hacerFiltrado() {
     const adultos = parseInt(txtAdultos.innerText) || 0;
     const niños = parseInt(txtNiños.innerText) || 0;
     const totalHuespedes = adultos + niños;
-
-    const resultFiltrados = originalsCaves.filter((estancia) => {
-        const pasaCiudad = estancia.city.toLowerCase().includes(ciudadBuscada) || ciudadBuscada === "";
-        const pasaHuespedes = estancia.maxGuests >= totalHuespedes;
-        return pasaCiudad && pasaHuespedes;
-    });
-
-    
-    renderTarjetas(resultFiltrados);
+    const resultFiltrados = filtrarEstancias(originalsCaves, ciudadBuscada, totalHuespedes);
+  
+    renderTarjetas(resultFiltrados, contenedor);
     verificarAlertaCapacidad();
 }
 
@@ -212,7 +183,7 @@ document.addEventListener("keydown", (e) => {
 
 async function desplegarPagina() {
     originalsCaves = await loadStays();
-    renderTarjetas(originalsCaves);  
+    renderTarjetas(originalsCaves, contenedor);  
 
 }
 

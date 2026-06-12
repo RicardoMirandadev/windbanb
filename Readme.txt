@@ -43,7 +43,7 @@ al hacer clic sobre ella.
 Instalación y ejecución
 Para trabajar con este proyecto localmente, sigue estos pasos:
 Clona el repositorio:
-git clone []
+git clone [https://github.com/RicardoMirandadev/windbanb]
 Instala las dependencias necesarias:
 npm install
 Inicia el servidor de desarrollo:

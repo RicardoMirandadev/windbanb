@@ -1,11 +1,10 @@
-export 
-function renderTarjetas(lista, contenedor) {
-    contenedor.innerHTML= "";
-    lista.forEach(estancia => {
+export function renderTarjetas(lista, contenedor) {
+    contenedor.innerHTML = "";
+    lista.forEach((estancia, index) => {
         const tarjetahtml = `
-        <div class="bg-white rounded-lg max-w-xl mx-auto my-4 group cursor-pointer">
+        <div class="bg-white rounded-lg max-w-xl mx-auto my-4 group cursor-pointer stay-card" data-index="${index}">
             <div class="text-sm text-gray-800 mb-3 overflow-hidden rounded-2xl h-64 group-hover:h-112.5 transition-all duration-500 ease-in-out">
-                <img class="w-full h-full aspect-4/3 object-cover transition-transform duration-500 ease-in-out group- group-hover:scale-110" src="${estancia.photo}" alt="${estancia.title}">
+                <img class="w-full h-full aspect-4/3 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" src="${estancia.photo}" alt="${estancia.title}">
             </div>
             <div class="pt-2 text-sm text-gray-500">
                 <div class="flex items-center justify-between">
@@ -22,6 +21,5 @@ function renderTarjetas(lista, contenedor) {
         </div>
         `; 
         contenedor.innerHTML += tarjetahtml;
-        
     });
 }
